@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="338.0" prefWidth="300.0" style="-fx-background-color: MINTCREAM;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.emae.DobController">
+   <children>
+      <TableView fx:id="idTableKl" layoutX="13.0" layoutY="64.0" prefHeight="200.0" prefWidth="274.0">
+        <columns>
+          <TableColumn fx:id="idID" prefWidth="32.79998588562012" text="id" />
+          <TableColumn fx:id="idNameKl" prefWidth="107.20001983642578" text="Имя" />
+            <TableColumn fx:id="idFamKl" prefWidth="134.39996337890625" text="Фамилия" />
+        </columns>
+      </TableView>
+      <Button fx:id="IdDob" layoutX="169.0" layoutY="292.0" mnemonicParsing="false" style="-fx-background-color: DARKSEAGREEN;" text="Добавить комнату" />
+      <Button fx:id="idOtm" layoutX="14.0" layoutY="292.0" mnemonicParsing="false" style="-fx-background-color: DARKSEAGREEN;" text="Отменить" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  mariadb:
+    image: mysql:8.0 # mariadb:11.5.2
+    ports:
+      - "13306:3306"
+    command:
+      --init-file /data/application/init.sql
+    environment:
+      MYSQL_DATABASE: kyrsach
+      MYSQL_USER: javafxTest
+      MYSQL_PASSWORD: changeme
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_ROOT_USER: javafxTest
+    volumes:
+      - D:/mariadbs:/var/lib/mysql
+      - D:/alennna/Загрузки/КОНЕЧНАЯ ВЕРСИЯ/EMAE/database/init.sql:/data/application/init.sql
+
+    # network_mode: "host"
