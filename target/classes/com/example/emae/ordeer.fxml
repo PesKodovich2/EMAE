@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import com.example.emae.TextTableCellFactory?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+
+<AnchorPane prefHeight="808.0" prefWidth="600.0" style="-fx-background-color: MINTCREAM;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.emae.OrderController">
+   <children>
+      <Label layoutX="74.0" layoutY="23.0" text="Выберите комнату, подходящую под ваши требования" textAlignment="CENTER" textFill="#698669" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="56.0">
+         <font>
+            <Font name="Times New Roman Bold" size="19.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="date1" layoutX="14.0" layoutY="115.0" promptText="Дата заселения" style="-fx-background-color: DARKSEAGREEN;" />
+      <DatePicker fx:id="date2" layoutX="225.0" layoutY="115.0" promptText="Дата выселения" style="-fx-background-color: DARKSEAGREEN;" />
+      <Label layoutX="196.0" layoutY="92.0" text="-" textFill="#698669">
+         <font>
+            <Font name="System Italic" size="48.0" />
+         </font>
+      </Label>
+      <Button fx:id="odin" onAction="#showSingleRooms" layoutX="56.0" layoutY="186.0" mnemonicParsing="false" style="-fx-background-color: DARKSEAGREEN;" text="Одноместные номера" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="410.4" />
+      <Button fx:id="dva" onAction="#showDoubleRooms" layoutX="240.0" layoutY="186.0" mnemonicParsing="false" style="-fx-background-color: DARKSEAGREEN;" text="Двухместные номера" AnchorPane.leftAnchor="232.5" AnchorPane.rightAnchor="232.5" />
+      <Button fx:id="tri" onAction="#showTripleRooms" layoutX="410.0" layoutY="186.0" mnemonicParsing="false" style="-fx-background-color: DARKSEAGREEN;" text="Трехместные номера" AnchorPane.leftAnchor="410.4" AnchorPane.rightAnchor="52.0" />
+      <Button fx:id="addYsl" onAction="#addYsl" layoutX="25.0" layoutY="747.0" mnemonicParsing="false" style="-fx-background-color: DARKSEAGREEN;" text="Добавить услуги" AnchorPane.bottomAnchor="35.0" />
+      <ScrollPane layoutX="25.0" layoutY="232.0" prefHeight="226.0" prefWidth="553.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="223.0" prefWidth="551.0">
+               <children>
+                  <TableView fx:id="roomTable" prefHeight="226.0" prefWidth="554.0" style="-fx-background-color: MINTCREAM;">
+                    <columns>
+                      <TableColumn fx:id="idRColumn" minWidth="0.0" prefWidth="0.0" text="ID" />
+                        <TableColumn fx:id="nameColumn" prefWidth="150" text="Название"/>
+                      <TableColumn fx:id="photoColumn" prefWidth="225.59997254610062" text="Фото" />
+                        <TableColumn fx:id="descriptionColumn" prefWidth="260.19996643066406" text="Описание">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="description" />
+                        </cellValueFactory>
+                        <cellFactory>
+                            <TextTableCellFactory />
+                        </cellFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="priceColumn" prefWidth="105.60003662109375" text="Цена" />
+                    </columns>
+                      <contextMenu>
+                          <ContextMenu fx:id="contextMenu">
+                              <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#openZakazWindow" text="Забронировать" />
+                              </items>
+                          </ContextMenu>
+                      </contextMenu>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Label layoutX="25.0" layoutY="487.0" text="Выберите услуги:" textFill="#698669" AnchorPane.leftAnchor="21.0">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="346.0" layoutY="531.0" text="Итого:" textFill="#698669" AnchorPane.rightAnchor="207.6">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="price" layoutX="400.0" layoutY="531.0" prefHeight="20.0" prefWidth="134.0" AnchorPane.leftAnchor="400.0">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="bron" onAction="#bron" layoutX="396.0" layoutY="639.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="123.0" style="-fx-background-color: DARKSEAGREEN;" text="Забронировать!" />
+       <ScrollPane layoutX="25.0" layoutY="531.0" prefHeight="200.0" prefWidth="239.0" style="-fx-background-color: MINTCREAM;" AnchorPane.leftAnchor="21.0">
+           <content>
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="223.0" prefWidth="239.0">
+                   <children>
+                       <TableView fx:id="tabYsl" prefHeight="226.0" prefWidth="239.0" style="-fx-background-color: MINTCREAM;">
+                           <columns>
+                               <TableColumn fx:id="colID" minWidth="0.0" prefWidth="0.0" text="ID" />
+                               <TableColumn fx:id="colYsl" prefWidth="160.0" text="Услуга" />
+                               <TableColumn fx:id="colPrice" prefWidth="79.0" text="Цена" />
+                           </columns>
+                       </TableView>
+                   </children>
+               </AnchorPane>
+           </content>
+       </ScrollPane>
+   </children>
+</AnchorPane>
